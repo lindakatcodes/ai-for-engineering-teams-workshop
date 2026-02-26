@@ -4,15 +4,10 @@ This is the workshop repository for **AI for Engineering Teams: Practical Tools 
 
 ## Getting Started
 
-### Prerequisites
-1. [Docker Desktop](https://www.docker.com) 
-2. [Visual Studio Code](https://code.visualstudio.com)
-   - [Dev Containers Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
-4. [Claude Code](https://claude.ai)
-
 ### Using VS Code Dev Containers (Recommended)
+Prerequisite: [Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers)
 
-1. Open this repository in VS Code
+1. Open this repository in VS Code.
 2. When prompted, click "Reopen in Container" (or use Command Palette: "Dev Containers: Reopen in Container")
 3. The dev container will automatically set up the environment with Node.js LTS
 4. Run the development server:
