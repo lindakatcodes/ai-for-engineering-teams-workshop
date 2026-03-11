@@ -9,13 +9,14 @@ const CustomerCardDemo = () => {
     const CustomerCard = require('../components/CustomerCard')?.default;
     const mockCustomers = require('../data/mock-customers')?.mockCustomers;
     
-    if (CustomerCard && mockCustomers?.[0]) {
+    if (CustomerCard && mockCustomers?.length) {
       return (
         <div className="space-y-4">
           <p className="text-green-600 text-sm font-medium">✅ CustomerCard implemented!</p>
-          <div className="flex flex-wrap gap-4">
-            <CustomerCard customer={mockCustomers[0]} />
-            <CustomerCard customer={mockCustomers[1]} />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {mockCustomers.map((customer: { id: string }) => (
+              <CustomerCard key={customer.id} customer={customer} />
+            ))}
           </div>
         </div>
       );
