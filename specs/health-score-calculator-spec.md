@@ -27,7 +27,7 @@
 - Input validation with descriptive error messages for all data inputs
 - Edge case handling for new customers and missing/null data
 - Normalization strategies for differing data types and value ranges
-- Trend analysis support (improving vs. declining trajectory)
+- Trend analysis: flag whether the customer trajectory is `improving`, `stable`, or `declining`
 
 #### UI Component (`src/components/CustomerHealthDisplay.tsx`)
 - Displays overall health score with color-coded visualization matching dashboard conventions (red/yellow/green)
@@ -45,7 +45,7 @@
   interface EngagementData { loginFrequencyPerMonth: number; featureUsageCount: number; openSupportTickets: number; }
   interface ContractData { daysUntilRenewal: number; contractValue: number; recentUpgrades: number; }
   interface SupportData { avgResolutionTimeDays: number; satisfactionScore: number; escalationCount: number; }
-  interface HealthScoreResult { score: number; riskLevel: 'healthy' | 'warning' | 'critical'; breakdown: FactorBreakdown; }
+  interface HealthScoreResult { score: number; riskLevel: 'healthy' | 'warning' | 'critical'; trend: 'improving' | 'stable' | 'declining'; breakdown: FactorBreakdown; }
   ```
 - **Error handling:** Custom error classes extending `Error` with descriptive messages
 - **JSDoc comments** on all exported functions explaining business logic and formulas
@@ -62,6 +62,7 @@
 - [ ] Each factor function returns a normalized 0–100 sub-score
 - [ ] Returns a descriptive error for any invalid or out-of-range input
 - [ ] New customers with missing data receive a safe default score rather than throwing
+- [ ] Trend field is present and one of `improving | stable | declining`
 - [ ] All functions are pure (no side effects, deterministic output)
 - [ ] All interfaces and functions are strongly typed — no `any` types
 - [ ] JSDoc comments present on every exported function
